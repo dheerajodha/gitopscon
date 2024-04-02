@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: example-app
+  template:
+    spec:
+      containers:
+      - name: dev-container
+        image: quay.io/djodha/test-gitopscon:ok-dev
+        ports:
+        - containerPort: 80
+

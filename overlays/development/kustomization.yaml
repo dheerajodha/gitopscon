@@ -1,5 +1,16 @@
 # overlays/production/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
 resources:
   - ../../base
+
+patches:
+- path: dep-patch.yaml
+  target:
+    kind: Deployment
+    name: base-deployment
+- path: service-patch.yaml
+  target:
+    kind: Service
+    name: base-service
