@@ -5,7 +5,8 @@ metadata:
   name: dev-service
 spec:
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 9080
       targetPort: 9080
   type: ClusterIP
