@@ -10,7 +10,7 @@ spec:
   template:
     spec:
       containers:
-      - name: dev-container
+      - name: my-container
         image: quay.io/djodha/test-gitopscon:ok-dev
         ports:
         - containerPort: 80

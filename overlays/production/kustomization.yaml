@@ -10,10 +10,6 @@ patches:
   target:
     kind: Deployment
     name: my-deployment
-- path: service-patch.yaml
-  target:
-    kind: Service
-    name: my-service
 
 images:
   - name: quay.io/djodha/test-gitopscon
