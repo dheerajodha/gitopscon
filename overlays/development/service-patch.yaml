@@ -5,7 +5,7 @@ metadata:
   name: dev-service
 spec:
   ports:
-    - name: http
+    - name: dev-http
       protocol: TCP
       port: 9080
       targetPort: 9080

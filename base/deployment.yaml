@@ -12,4 +12,9 @@ spec:
     metadata:
       labels:
         app: example-app
-
+    spec:
+      containers:
+      - name: base-container
+        image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+        ports:
+        - containerPort: 80

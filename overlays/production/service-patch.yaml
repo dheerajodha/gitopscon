@@ -5,7 +5,8 @@ metadata:
   name: prod-service
 spec:
   ports:
-    - protocol: TCP
+    - name: prod-http
+      protocol: TCP
       port: 8000
       targetPort: 8000
   type: ClusterIP
