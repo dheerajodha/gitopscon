@@ -1,16 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prod-deployment
+  name: my-deployment
 spec:
   replicas: 3
-  selector:
-    matchLabels:
-      app: example-app
-  template:
-    spec:
-      containers:
-      - name: prod-container
-        image: quay.io/djodha/test-gitopscon:ok-prod
-        ports:
-        - containerPort: 80

@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: base-deployment
+  name: my-deployment
 spec:
   replicas: 1
   selector:
@@ -14,7 +14,7 @@ spec:
         app: example-app
     spec:
       containers:
-      - name: base-container
-        image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+      - name: my-container
+        image: quay.io/djodha/test-gitopscon:base-deployment
         ports:
         - containerPort: 80
