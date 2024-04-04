@@ -4,13 +4,4 @@ metadata:
   name: my-deployment
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: example-app
-  template:
-    spec:
-      containers:
-      - name: my-container
-        image: quay.io/djodha/test-gitopscon:ok-stage
-        ports:
-        - containerPort: 80
+

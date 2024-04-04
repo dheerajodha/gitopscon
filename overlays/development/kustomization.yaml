@@ -10,3 +10,7 @@ patches:
   target:
     kind: Deployment
     name: my-deployment
+
+images:
+  - name: quay.io/djodha/test-gitopscon
+    newTag: ok-dev
