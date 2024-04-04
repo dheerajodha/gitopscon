@@ -13,4 +13,4 @@ patches:
 
 images:
   - name: quay.io/djodha/test-gitopscon
-  - newTag: ok-prod
+    newTag: ok-prod
