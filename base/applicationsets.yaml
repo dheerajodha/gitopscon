@@ -1,0 +1,48 @@
+# applicationsets.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: my-appset
+  namespace: openshift-gitops
+spec:
+  generators:
+    - list:
+        elements:
+          - nameNormalized: base
+            values:
+              clusterDir: base
+              serverName: https://kubernetes.default.svc
+          - nameNormalized: production
+            values:
+              clusterDir: overlays/production
+              serverName: https://kubernetes.default.svc
+          - nameNormalized: staging
+            values:
+              clusterDir: overlays/staging
+              serverName: https://kubernetes.default.svc
+          - nameNormalized: development
+            values:
+              clusterDir: overlays/development
+              serverName: https://kubernetes.default.svc
+  template:
+    metadata:
+      name: my-appset-{{nameNormalized}}
+    spec:
+      project: default
+      source:
+        path: '{{values.clusterDir}}'
+        repoURL: https://github.com/dheerajodha/prep
+        targetRevision: applicationsets
+      destination:
+        namespace: '{{nameNormalized}}-ns'
+        server: '{{values.serverName}}'
+      syncPolicy:
+        automated: 
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        retry:
+          limit: 50
+          backoff:
+            duration: 15s

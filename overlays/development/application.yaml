@@ -13,7 +13,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: dev-ns
+    namespace: development-ns
 
   syncPolicy:
     automated:
